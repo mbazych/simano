@@ -9,9 +9,9 @@ class Tags(models.Model):
         return self.name
 
 class Events(models.Model):
-    # event title
+
     title = models.CharField(max_length=255, null=False)
-    # name of author of event
+
     author = models.ForeignKey(User, on_delete = models.CASCADE)
 
     start_date = models.DateTimeField()
@@ -21,7 +21,7 @@ class Events(models.Model):
 
     tags = models.ManyToManyField(Tags, related_name="tags")
 
-    img = models.ImageField(upload_to='static/photos')
+    img = models.ImageField(upload_to='../../static/photos')
 
     
 
