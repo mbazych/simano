@@ -25,7 +25,7 @@ SECRET_KEY = 'iapy56oieg!9_zet+vuzt^0-8el!cco3c559s-p_kcsi)#ie1%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["simano.ew.r.appspot.com", "127.0.0.1"]
+ALLOWED_HOSTS = ["simano.ew.r.appspot.com", "127.0.0.1", "api.simano.mczarczynski.pl", "www.api.simano.mczarczynski.pl"]
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
