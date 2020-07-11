@@ -1,5 +1,4 @@
-api_simano
+
 */__pycache__
-static
-start_proxy.bat
-cloud_sql_proxy_x64.exe
+
+events/migrations/*

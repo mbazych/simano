@@ -12,7 +12,13 @@ class Country(models.Model):
 
     def __str__(self):
         return self.country
-    
+
+class Category(models.Model):
+    category = models.CharField(max_length=32, null=False)
+
+    def __str__(self):
+        return self.category
+
 class City(models.Model):
     city = models.CharField(max_length=32, null=False)
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
@@ -20,16 +26,11 @@ class City(models.Model):
     def __str__(self):
         return self.city
 
-class Categories(models.Model):
-    name = models.CharField(max_length=32, null=False)
-
-    def __str__(self):
-        return self.name
-
 class Events(models.Model):
 
     title = models.CharField(max_length=255, null=False)
 
+    category = models.ForeignKey(Category, on_delete = models.CASCADE)
     author = models.ForeignKey(User, on_delete = models.CASCADE)
     Description = models.CharField(max_length=255, null=False)
     city = models.ForeignKey(City, on_delete=models.CASCADE)
@@ -40,9 +41,8 @@ class Events(models.Model):
     participants = models.ManyToManyField(User, related_name="participants")
 
     tags = models.ManyToManyField(Tags, related_name="tags")
-    category = models.ManyToManyField(Categories, related_name="category")
 
-    img = models.ImageField(upload_to='../../static/photos')
+    img = models.ImageField(upload_to='./static/photos', blank=True)
 
     
 

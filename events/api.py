@@ -1,6 +1,6 @@
-from .models import Events, Tags, City, Country
+from .models import Events, Tags, City, Country, Category
 from rest_framework import viewsets
-from .serializers import EventsSerializer, TagsSerializer, CitySerializer, CountrySerializer
+from .serializers import EventsSerializer, TagsSerializer, CitySerializer, CountrySerializer, CategorySerializer
 
 class EventsViewset(viewsets.ModelViewSet):
     queryset = Events.objects.all()
@@ -17,3 +17,7 @@ class CityViewSet(viewsets.ModelViewSet):
 class CountryViewSet(viewsets.ModelViewSet):
     queryset = Country.objects.all()
     serializer_class = CountrySerializer
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer

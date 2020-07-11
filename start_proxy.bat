@@ -1,0 +1,1 @@
+.\cloud_sql_proxy_x64.exe --instances="simano:europe-west3:simanodb"=tcp:3306

@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import Events, Tags, City, Country
+from .models import Events, Tags, City, Country, Category
 
-class CountrySerializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Country
+        model = Category
         fields = "__all__"
 
 class EventsSerializer(serializers.ModelSerializer):
