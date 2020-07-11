@@ -20,6 +20,12 @@ class City(models.Model):
     def __str__(self):
         return self.city
 
+class Categories(models.Model):
+    name = models.CharField(max_length=32, null=False)
+
+    def __str__(self):
+        return self.name
+
 class Events(models.Model):
 
     title = models.CharField(max_length=255, null=False)
@@ -34,6 +40,7 @@ class Events(models.Model):
     participants = models.ManyToManyField(User, related_name="participants")
 
     tags = models.ManyToManyField(Tags, related_name="tags")
+    category = models.ManyToManyField(Categories, related_name="category")
 
     img = models.ImageField(upload_to='../../static/photos')
 
