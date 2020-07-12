@@ -42,7 +42,7 @@ class Events(models.Model):
 
     tags = models.ManyToManyField(Tags, related_name="tags")
 
-    img = models.ImageField(upload_to='./static/photos', blank=True)
+    img = models.ImageField(upload_to='tmp/photos', blank=True)
 
     
 

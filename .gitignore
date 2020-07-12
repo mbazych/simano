@@ -2,3 +2,7 @@
 */__pycache__
 
 events/migrations/*
+c.json
+api_simano
+static/photos
+events/simano/settings.py

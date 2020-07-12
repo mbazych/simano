@@ -9,9 +9,33 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+from google.oauth2 import service_account
 import os
+PROJECT_ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
 
+
+        
+DEFAULT_FILE_STORAGE = 'gcloud.GoogleCloudMediaFileStorage'
+STATICFILES_STORAGE = 'gcloud.GoogleCloudStaticFileStorage'
+
+GS_PROJECT_ID = 'simano'
+GS_STATIC_BUCKET_NAME = 'simano.appspot.com'
+GS_MEDIA_BUCKET_NAME = 'simano.appspot.com'  # same as STATIC BUCKET if using single bucket both for static and media
+
+STATIC_URL = 'https://storage.googleapis.com/{}/'.format(GS_STATIC_BUCKET_NAME)
+STATIC_ROOT = "static/"
+
+MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_MEDIA_BUCKET_NAME)
+MEDIA_ROOT = "media/"
+
+UPLOAD_ROOT = 'media/uploads/'
+
+DOWNLOAD_ROOT = os.path.join(PROJECT_ROOT, "static/media/downloads")
+DOWNLOAD_URL = STATIC_URL + "media/downloads"
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    "c.json"
+)
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
