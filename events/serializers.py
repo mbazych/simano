@@ -7,6 +7,9 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class EventsSerializer(serializers.ModelSerializer):
+    #author = serializers.(lookup_field='author.username')
+    #participants = serializers.Field(source='participants.name')
+    
     class Meta:
         model = Events
         fields = "__all__"
@@ -25,3 +28,4 @@ class CountrySerializer(serializers.ModelSerializer):
     class Meta:
         model = Country
         fields = "__all__"
+

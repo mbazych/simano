@@ -33,3 +33,12 @@ class LoginSerializer(serializers.Serializer):
         if user and user.is_active:
             return user
         raise serializers.ValidationError("Incorrect Credentials")
+
+# class ListUserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = ('username', 'email', 'id', 'password')
+#         read_only_fields = ('id',)
+#         extra_kwargs = {
+#             'password': {'write_only': True}
+#         }
